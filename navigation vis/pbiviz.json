@@ -1,18 +1,18 @@
 {
   "visual": {
-    "name": "myVisualName",
-    "displayName": "My Visual name",
-    "guid": "myVisualName856B6B155F644C1CA89C1981472F3414",
+    "name": "Navigationlist",
+    "displayName": "Navigation List",
+    "guid": "naviList856B6B155F644C1CA89C1981472F3414",
     "visualClassName": "Visual",
     "version": "1.0.0",
-    "description": "",
+    "description": "A alternative mecnahism moving between reports and dashboards",
     "supportUrl": "",
     "gitHubUrl": ""
   },
   "apiVersion": "1.11.0",
   "author": {
-    "name": "",
-    "email": ""
+    "name": "Jeremy Epstein",
+    "email": "eggfree@eggfree.net"
   },
   "assets": {
     "icon": "assets/icon.png"

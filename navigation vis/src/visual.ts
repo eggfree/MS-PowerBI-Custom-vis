@@ -25,7 +25,67 @@
  */
 
 module powerbi.extensibility.visual {
+   
     "use strict";
+/** STEP 1 INTERFACES
+/*  this interface defines the basic view models used for drawing.
+/* I'll use d3 to actually render things as it's part and parcel of powerBI.)*/ 
+ /**
+ * Interface for Navigation viewmodel.
+ *
+ * @interface
+ * @property {reportPage[]} pages                set of report pages or dash pages - 
+                                             essentially this control renders the names and links
+                                             and tracks current selection. report pages can have child pages       
+   @property {string} selected */
+   
+   interface navigationViewModel {
+        pages:   reportPage[];
+        default: string;
+    };
+
+
+ /**
+ * Interface for BarChart data points.
+ *
+ * @interface reportPage
+ * @property {string} url    - Data value for point.
+ * @property {string} label  - Coresponding category of data value.
+ */
+    interface reportPage {
+        id:      string;
+        url:     string;
+        label:   string;
+        children: string[];
+    };
+
+ /** NOw stub data. not sure where we would get this data except 
+     for inlining it as its not clear powerBI surfaces this data*/
+
+  let reportList: reportPage[] = [
+    {
+        id:    "hpage",
+        url:    "https://jeremyepstein.com",
+        label:  "homepage",
+        children: []
+    },
+    {
+        id:    "newspage",
+        url:    "https://nytimes.com",
+        label:  "the times",
+        children: []
+    }
+    ]
+
+   /** now populate viewmodel*/
+   let viewModel: navigationViewModel = {
+       pages: reportList,
+       default: "hpage"
+   } 
+
+
+
+
     export class Visual implements IVisual {
         private target: HTMLElement;
         private updateCount: number;

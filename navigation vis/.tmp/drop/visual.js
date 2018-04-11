@@ -610,6 +610,29 @@ var powerbi;
             var myVisualName856B6B155F644C1CA89C1981472F3414;
             (function (myVisualName856B6B155F644C1CA89C1981472F3414) {
                 "use strict";
+                ;
+                ;
+                /** NOw stub data. not sure where we would get this data except
+                    for inlining it as its not clear powerBI surfaces this data*/
+                var reportList = [
+                    {
+                        id: "hpage",
+                        url: "https://jeremyepstein.com",
+                        label: "homepage",
+                        children: []
+                    },
+                    {
+                        id: "newspage",
+                        url: "https://nytimes.com",
+                        label: "the times",
+                        children: []
+                    }
+                ];
+                /** now populate viewmodel*/
+                var viewModel = {
+                    pages: reportList,
+                    default: "hpage"
+                };
                 var Visual = (function () {
                     function Visual(options) {
                         console.log('Visual constructor', options);
