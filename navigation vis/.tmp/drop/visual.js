@@ -542,8 +542,8 @@ var powerbi;
     (function (extensibility) {
         var visual;
         (function (visual) {
-            var myVisualName856B6B155F644C1CA89C1981472F3414;
-            (function (myVisualName856B6B155F644C1CA89C1981472F3414) {
+            var naviList856B6B155F644C1CA89C1981472F3414;
+            (function (naviList856B6B155F644C1CA89C1981472F3414) {
                 "use strict";
                 var DataViewObjectsParser = powerbi.extensibility.utils.dataview.DataViewObjectsParser;
                 var VisualSettings = (function (_super) {
@@ -555,7 +555,7 @@ var powerbi;
                     }
                     return VisualSettings;
                 }(DataViewObjectsParser));
-                myVisualName856B6B155F644C1CA89C1981472F3414.VisualSettings = VisualSettings;
+                naviList856B6B155F644C1CA89C1981472F3414.VisualSettings = VisualSettings;
                 var dataPointSettings = (function () {
                     function dataPointSettings() {
                         // Default color
@@ -571,8 +571,8 @@ var powerbi;
                     }
                     return dataPointSettings;
                 }());
-                myVisualName856B6B155F644C1CA89C1981472F3414.dataPointSettings = dataPointSettings;
-            })(myVisualName856B6B155F644C1CA89C1981472F3414 = visual.myVisualName856B6B155F644C1CA89C1981472F3414 || (visual.myVisualName856B6B155F644C1CA89C1981472F3414 = {}));
+                naviList856B6B155F644C1CA89C1981472F3414.dataPointSettings = dataPointSettings;
+            })(naviList856B6B155F644C1CA89C1981472F3414 = visual.naviList856B6B155F644C1CA89C1981472F3414 || (visual.naviList856B6B155F644C1CA89C1981472F3414 = {}));
         })(visual = extensibility.visual || (extensibility.visual = {}));
     })(extensibility = powerbi.extensibility || (powerbi.extensibility = {}));
 })(powerbi || (powerbi = {}));
@@ -607,69 +607,34 @@ var powerbi;
     (function (extensibility) {
         var visual;
         (function (visual) {
-            var myVisualName856B6B155F644C1CA89C1981472F3414;
-            (function (myVisualName856B6B155F644C1CA89C1981472F3414) {
-                "use strict";
-                ;
-                ;
-                /** NOw stub data. not sure where we would get this data except
-                    for inlining it as its not clear powerBI surfaces this data*/
-                var reportList = [
-                    {
-                        id: "hpage",
-                        url: "https://jeremyepstein.com",
-                        label: "homepage",
-                        children: []
-                    },
-                    {
-                        id: "newspage",
-                        url: "https://nytimes.com",
-                        label: "the times",
-                        children: []
+            var naviList856B6B155F644C1CA89C1981472F3414;
+            (function (naviList856B6B155F644C1CA89C1981472F3414) {
+                var NaviList = (function () {
+                    function NaviList(options) {
+                        //one time setup code goes here (called once)
+                        options.element.innerHTML = "<h2>Fuck yeah</h2>";
+                        var el = options.element.style;
+                        el.borderWidth = "1px";
+                        el.borderColor = "red";
+                        console.log(options.element.innerHTML);
+                        options.host.launchUrl("https://github.com/Microsoft/PowerBI-visuals/blob/master/Readme.md#developing-your-first-powerbi-visual");
                     }
-                ];
-                /** now populate viewmodel*/
-                var viewModel = {
-                    pages: reportList,
-                    default: "hpage"
-                };
-                var Visual = (function () {
-                    function Visual(options) {
-                        console.log('Visual constructor', options);
-                        this.target = options.element;
-                        this.updateCount = 0;
-                        if (typeof document !== "undefined") {
-                            var new_p = document.createElement("p");
-                            new_p.appendChild(document.createTextNode("Update count:"));
-                            var new_em = document.createElement("em");
-                            this.textNode = document.createTextNode(this.updateCount.toString());
-                            new_em.appendChild(this.textNode);
-                            new_p.appendChild(new_em);
-                            this.target.appendChild(new_p);
-                        }
-                    }
-                    Visual.prototype.update = function (options) {
-                        this.settings = Visual.parseSettings(options && options.dataViews && options.dataViews[0]);
-                        console.log('Visual update', options);
-                        if (typeof this.textNode !== "undefined") {
-                            this.textNode.textContent = (this.updateCount++).toString();
-                        }
+                    NaviList.prototype.update = function (options) {
+                        //code to update your visual goes here (called on all view or data changes)
+                        console.log("updating");
                     };
-                    Visual.parseSettings = function (dataView) {
-                        return myVisualName856B6B155F644C1CA89C1981472F3414.VisualSettings.parse(dataView);
+                    /*public enumerateObjectInstances(options: EnumerateVisualObjectInstancesOptions): VisualObjectInstanceEnumeration {
+                        //returns objects to populate the property pane (called for each object defined in capabilities)
+                       return
+            
+                    }*/
+                    NaviList.prototype.destroy = function () {
+                        //one time cleanup code goes here (called once)
                     };
-                    /**
-                     * This function gets called for each of the objects defined in the capabilities files and allows you to select which of the
-                     * objects and properties you want to expose to the users in the property pane.
-                     *
-                     */
-                    Visual.prototype.enumerateObjectInstances = function (options) {
-                        return myVisualName856B6B155F644C1CA89C1981472F3414.VisualSettings.enumerateObjectInstances(this.settings || myVisualName856B6B155F644C1CA89C1981472F3414.VisualSettings.getDefault(), options);
-                    };
-                    return Visual;
+                    return NaviList;
                 }());
-                myVisualName856B6B155F644C1CA89C1981472F3414.Visual = Visual;
-            })(myVisualName856B6B155F644C1CA89C1981472F3414 = visual.myVisualName856B6B155F644C1CA89C1981472F3414 || (visual.myVisualName856B6B155F644C1CA89C1981472F3414 = {}));
+                naviList856B6B155F644C1CA89C1981472F3414.NaviList = NaviList;
+            })(naviList856B6B155F644C1CA89C1981472F3414 = visual.naviList856B6B155F644C1CA89C1981472F3414 || (visual.naviList856B6B155F644C1CA89C1981472F3414 = {}));
         })(visual = extensibility.visual || (extensibility.visual = {}));
     })(extensibility = powerbi.extensibility || (powerbi.extensibility = {}));
 })(powerbi || (powerbi = {}));
@@ -679,13 +644,13 @@ var powerbi;
     (function (visuals) {
         var plugins;
         (function (plugins) {
-            plugins.myVisualName856B6B155F644C1CA89C1981472F3414_DEBUG = {
-                name: 'myVisualName856B6B155F644C1CA89C1981472F3414_DEBUG',
-                displayName: 'My Visual name',
-                class: 'Visual',
+            plugins.naviList856B6B155F644C1CA89C1981472F3414 = {
+                name: 'naviList856B6B155F644C1CA89C1981472F3414',
+                displayName: 'NaviList',
+                class: 'NaviList',
                 version: '1.0.0',
                 apiVersion: '1.11.0',
-                create: function (options) { return new powerbi.extensibility.visual.myVisualName856B6B155F644C1CA89C1981472F3414.Visual(options); },
+                create: function (options) { return new powerbi.extensibility.visual.naviList856B6B155F644C1CA89C1981472F3414.NaviList(options); },
                 custom: true
             };
         })(plugins = visuals.plugins || (visuals.plugins = {}));

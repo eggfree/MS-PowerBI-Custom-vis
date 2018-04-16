@@ -24,7 +24,7 @@
  *  THE SOFTWARE.
  */
 
-module powerbi.extensibility.visual.myVisualName856B6B155F644C1CA89C1981472F3414  {
+module powerbi.extensibility.visual.naviList856B6B155F644C1CA89C1981472F3414  {
     "use strict";
     import DataViewObjectsParser = powerbi.extensibility.utils.dataview.DataViewObjectsParser;
 

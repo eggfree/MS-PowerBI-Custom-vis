@@ -1,9 +1,9 @@
 {
   "visual": {
-    "name": "Navigationlist",
-    "displayName": "Navigation List",
+    "name": "Navi List",
+    "displayName": "NaviList",
     "guid": "naviList856B6B155F644C1CA89C1981472F3414",
-    "visualClassName": "Visual",
+    "visualClassName": "NaviList",
     "version": "1.0.0",
     "description": "A alternative mecnahism moving between reports and dashboards",
     "supportUrl": "",
@@ -19,6 +19,7 @@
   },
   "externalJS": [
     "node_modules/powerbi-visuals-utils-dataviewutils/lib/index.js"
+    
   ],
   "style": "style/visual.less",
   "capabilities": "capabilities.json",
